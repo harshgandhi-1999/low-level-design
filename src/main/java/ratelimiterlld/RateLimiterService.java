@@ -1,5 +1,9 @@
 package ratelimiterlld;
 
+import ratelimiterlld.algo.RateLimiter;
+import ratelimiterlld.config.RateLimiterConfig;
+import ratelimiterlld.factory.RateLimiterFactory;
+
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,8 +29,12 @@ public class RateLimiterService {
         return INSTANCE;
     }
 
-    public void registerUser(String userId, String algorithm, int maxRequests, long windowSizeSeconds){
-        userRateLimiters.put(userId, RateLimiterFactory.createRateLimiter(algorithm, maxRequests, windowSizeSeconds*1000));
+    public void registerUser(String userId, RateLimiterConfig config){
+        userRateLimiters.put(userId, RateLimiterFactory.createRateLimiter(config));
+    }
+
+    public RateLimiter getRateLimiter(String userId){
+        return userRateLimiters.get(userId);
     }
 
     public boolean allowRequest(String userId){
