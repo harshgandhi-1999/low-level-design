@@ -5,7 +5,7 @@ import ratelimiterlld.Algorithm;
 public class RateLimiterConfigBuilder {
     private Algorithm algorithm;
     private int limit;
-    private int windowInSeconds;
+    private long windowSizeInMillis;
     private double refillRate;
     private double leakRate;
 
@@ -27,12 +27,12 @@ public class RateLimiterConfigBuilder {
         return this;
     }
 
-    public int getWindowInSeconds() {
-        return windowInSeconds;
+    public long getWindowSizeInMillis() {
+        return windowSizeInMillis;
     }
 
-    public RateLimiterConfigBuilder setWindowInSeconds(int windowInSeconds) {
-        this.windowInSeconds = windowInSeconds;
+    public RateLimiterConfigBuilder setWindowSizeInMillis(long windowSizeInMillis) {
+        this.windowSizeInMillis = windowSizeInMillis;
         return this;
     }
 
