@@ -1,6 +1,6 @@
 package ratelimiterlld;
 
-import ratelimiterlld.algo.RateLimiter;
+import ratelimiterlld.algo.impl.FixedWindowCounterRateLimiter;
 import ratelimiterlld.algo.impl.LeakyBucketRateLimiter;
 import ratelimiterlld.config.RateLimiterConfig;
 import ratelimiterlld.config.RateLimiterConfigBuilder;
@@ -11,6 +11,7 @@ public class Main {
 
         tokenBucketDemo(service);
         leakyBucketDemo(service);
+        fixedWindowCounterDemo(service);
     }
 
     public static void tokenBucketDemo(RateLimiterService service) throws InterruptedException{
@@ -43,6 +44,24 @@ public class Main {
                 Thread.sleep(100);
             }
             leakyBucketRateLimiter.shutdown();
+        }
+    }
+
+    public static void fixedWindowCounterDemo(RateLimiterService service) throws InterruptedException{
+        RateLimiterConfig config = new RateLimiterConfigBuilder()
+                .setAlgorithm(Algorithm.FIXED_WINDOW)
+                .setLimit(5)
+                .setWindowSizeInMillis(1000)
+                .build();
+
+        service.registerUser("user-3", config);
+
+        FixedWindowCounterRateLimiter fixedWindowCounterRateLimiter = (FixedWindowCounterRateLimiter) service.getRateLimiter("user-3");
+        if(fixedWindowCounterRateLimiter != null){
+            for (int i = 0; i < 20; i++) {
+                System.out.println("User 3 Request " + (i + 1) + " : " + service.allowRequest("user-3"));
+                Thread.sleep(100);
+            }
         }
     }
 }
