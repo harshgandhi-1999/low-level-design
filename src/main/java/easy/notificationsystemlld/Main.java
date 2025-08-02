@@ -5,8 +5,10 @@ import easy.notificationsystemlld.entity.Message;
 import easy.notificationsystemlld.entity.Notification;
 import easy.notificationsystemlld.entity.NotificationType;
 import easy.notificationsystemlld.entity.User;
+import easy.notificationsystemlld.queue.NotificationQueue;
 import easy.notificationsystemlld.service.ChannelPreferenceService;
-import easy.notificationsystemlld.service.NotificationService;
+import easy.notificationsystemlld.service.NotificationDispatcher;
+import easy.notificationsystemlld.worker.NotificationWorker;
 
 import java.util.List;
 
@@ -30,10 +32,14 @@ public class Main {
         Notification notification1 = new Notification(NotificationType.ORDER_PLACED, user1, new Message("Your order has been placed"));
         Notification notification2 = new Notification(NotificationType.DAILY_DIGEST, user2, new Message("Study this tech blog"));
 
-        NotificationService notificationService = new NotificationService(channelPreferenceService);
+        NotificationDispatcher notificationDispatcher = new NotificationDispatcher(channelPreferenceService);
 
-        notificationService.sendNotification(user1.getId(),notification1);
-        notificationService.sendNotification(user2.getId(),notification2);
+        NotificationQueue queue = new NotificationQueue();
+        NotificationWorker notificationWorker = new NotificationWorker(queue, notificationDispatcher);
 
+        queue.enqueue(notification1);
+        queue.enqueue(notification2);
+
+        new Thread(notificationWorker).start();
     }
 }

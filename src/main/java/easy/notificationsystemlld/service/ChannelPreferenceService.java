@@ -15,14 +15,14 @@ public class ChannelPreferenceService {
         this.userPreferences = new HashMap<>();
     }
 
-    public void addUserPreference(String userId, ChannelType channelType){
+    public void addUserPreference(String userId, ChannelType channelType) {
         // Add the channel type to the list of preferred channels for the given user id. If the user does not exist in the map,
         // create a new entry with an empty list and then add the channel type to that list.
         userPreferences.getOrDefault(userId, new ArrayList<>()).add(channelType);
     }
 
-    public void setUserPreferences(String userId, List<ChannelType> preferenceList){
-        if(preferenceList.isEmpty()){
+    public void setUserPreferences(String userId, List<ChannelType> preferenceList) {
+        if (preferenceList.isEmpty()) {
             throw new IllegalArgumentException("Preference list cannot be empty");
         }
 

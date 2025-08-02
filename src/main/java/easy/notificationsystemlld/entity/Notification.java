@@ -2,7 +2,7 @@ package easy.notificationsystemlld.entity;
 
 import static easy.notificationsystemlld.Utils.generateUniqueId;
 
-public class Notification {
+public class Notification implements Comparable<Notification>{
 
     private final String id;
     private final NotificationType notificationType;
@@ -14,7 +14,7 @@ public class Notification {
         this.id = generateUniqueId();
         this.notificationType = notificationType;
         this.user = user;
-        this.notificationPriority = NotificationPriority.LOW;
+        this.notificationPriority = NotificationPriority.MEDIUM;
         this.message = message;
     }
 
@@ -40,5 +40,11 @@ public class Notification {
 
     public void setNotificationPriority(NotificationPriority notificationPriority) {
         this.notificationPriority = notificationPriority;
+    }
+
+    @Override
+    public int compareTo(Notification other) {
+        // higher priority first
+        return other.notificationPriority.ordinal() - this.notificationPriority.ordinal();
     }
 }

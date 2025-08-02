@@ -1,7 +1,7 @@
 package easy.notificationsystemlld.entity;
 
 public enum NotificationPriority {
-    LOW,
+    HIGH,
     MEDIUM,
-    HIGH
+    LOW,
 }
