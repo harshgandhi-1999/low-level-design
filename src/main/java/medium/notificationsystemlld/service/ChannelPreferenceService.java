@@ -1,6 +1,6 @@
-package easy.notificationsystemlld.service;
+package medium.notificationsystemlld.service;
 
-import easy.notificationsystemlld.channels.ChannelType;
+import medium.notificationsystemlld.channels.ChannelType;
 
 import java.util.ArrayList;
 import java.util.HashMap;

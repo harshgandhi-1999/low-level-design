@@ -1,6 +1,6 @@
-package easy.notificationsystemlld.factory;
+package medium.notificationsystemlld.factory;
 
-import easy.notificationsystemlld.channels.*;
+import medium.notificationsystemlld.channels.*;
 
 public class ChannelFactory {
 

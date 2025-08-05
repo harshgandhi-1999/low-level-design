@@ -1,6 +1,6 @@
-package easy.notificationsystemlld.queue;
+package medium.notificationsystemlld.queue;
 
-import easy.notificationsystemlld.entity.Notification;
+import medium.notificationsystemlld.entity.Notification;
 
 import java.util.concurrent.PriorityBlockingQueue;
 

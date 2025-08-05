@@ -1,4 +1,4 @@
-package easy.notificationsystemlld;
+package medium.notificationsystemlld;
 
 import java.util.UUID;
 

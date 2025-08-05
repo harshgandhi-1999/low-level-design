@@ -1,6 +1,8 @@
-package easy.notificationsystemlld.entity;
+package medium.notificationsystemlld.entity;
 
-import static easy.notificationsystemlld.Utils.generateUniqueId;
+import java.time.Instant;
+
+import static medium.notificationsystemlld.Utils.generateUniqueId;
 
 public class Notification implements Comparable<Notification>{
 
@@ -9,6 +11,9 @@ public class Notification implements Comparable<Notification>{
     private NotificationPriority notificationPriority;
     private final User user;
     private final Message message;
+
+    private int retryCount = 0;
+    private Instant scheduledTime = Instant.now(); // default = immediate
 
     public Notification(NotificationType notificationType, User user, Message message) {
         this.id = generateUniqueId();
@@ -42,9 +47,25 @@ public class Notification implements Comparable<Notification>{
         this.notificationPriority = notificationPriority;
     }
 
+    public int getRetryCount() {
+        return retryCount;
+    }
+
+    public void setRetryCount(int retryCount) {
+        this.retryCount = retryCount;
+    }
+
+    public Instant getScheduledTime() {
+        return scheduledTime;
+    }
+
+    public void setScheduledTime(Instant scheduledTime) {
+        this.scheduledTime = scheduledTime;
+    }
+
     @Override
     public int compareTo(Notification other) {
         // higher priority first
-        return other.notificationPriority.ordinal() - this.notificationPriority.ordinal();
+        return this.notificationPriority.ordinal() - other.notificationPriority.ordinal();
     }
 }

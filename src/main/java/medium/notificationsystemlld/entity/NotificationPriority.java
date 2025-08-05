@@ -1,4 +1,4 @@
-package easy.notificationsystemlld.entity;
+package medium.notificationsystemlld.entity;
 
 public enum NotificationPriority {
     HIGH,

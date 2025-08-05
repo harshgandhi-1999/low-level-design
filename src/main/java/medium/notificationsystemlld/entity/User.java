@@ -1,6 +1,6 @@
-package easy.notificationsystemlld.entity;
+package medium.notificationsystemlld.entity;
 
-import static easy.notificationsystemlld.Utils.generateUniqueId;
+import static medium.notificationsystemlld.Utils.generateUniqueId;
 
 public class User {
     private final String id;

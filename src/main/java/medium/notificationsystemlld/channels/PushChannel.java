@@ -1,8 +1,8 @@
-package easy.notificationsystemlld.channels;
+package medium.notificationsystemlld.channels;
 
-import easy.notificationsystemlld.entity.Notification;
+import medium.notificationsystemlld.entity.Notification;
 
-public class PushChannel implements NotificationChannel{
+public class PushChannel implements NotificationChannel {
 
     @Override
     public void send(Notification notification) {

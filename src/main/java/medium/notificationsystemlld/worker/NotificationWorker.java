@@ -1,8 +1,8 @@
-package easy.notificationsystemlld.worker;
+package medium.notificationsystemlld.worker;
 
-import easy.notificationsystemlld.entity.Notification;
-import easy.notificationsystemlld.queue.NotificationQueue;
-import easy.notificationsystemlld.service.NotificationDispatcher;
+import medium.notificationsystemlld.entity.Notification;
+import medium.notificationsystemlld.queue.NotificationQueue;
+import medium.notificationsystemlld.service.NotificationDispatcher;
 
 public class NotificationWorker implements Runnable {
 
@@ -21,7 +21,9 @@ public class NotificationWorker implements Runnable {
                 Notification notification = notificationQueue.dequeue();
                 notificationDispatcher.dispatch(notification);
             } catch (InterruptedException e) {
-                throw new RuntimeException(e);
+                if(Thread.interrupted()){
+                    break;
+                }
             }
         }
     }

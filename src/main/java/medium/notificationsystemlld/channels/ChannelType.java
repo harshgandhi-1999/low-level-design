@@ -1,4 +1,4 @@
-package easy.notificationsystemlld.channels;
+package medium.notificationsystemlld.channels;
 
 public enum ChannelType {
     EMAIL,
