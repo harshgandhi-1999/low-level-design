@@ -39,7 +39,7 @@ public class Main {
         ConsoleAppender consoleAppender = new ConsoleAppender();
         LogHandler logHandler = getLogger(consoleAppender);
 
-        logHandler.log(LogLevel.INFO, "This is debug log");
+        logHandler.log(LogLevel.INFO, "This is info log");
         logHandler.log(LogLevel.DEBUG, "This is debug log");
         logHandler.log(LogLevel.ERROR, "This is error log");
 
