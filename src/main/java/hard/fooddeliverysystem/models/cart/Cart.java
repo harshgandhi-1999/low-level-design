@@ -1,7 +1,6 @@
 package hard.fooddeliverysystem.models.cart;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class Cart {
     private final String id;
@@ -50,6 +49,7 @@ public class Cart {
 
     // ---------- Coupon Handling ----------
 
+    // TODO: need to test this
     public void applyCoupon(String couponCode) {
         appliedCouponCodes.add(couponCode);
     }
@@ -76,12 +76,6 @@ public class Cart {
     public boolean containsRestaurant(String restaurantId) {
         return items.stream()
                 .anyMatch(item -> item.getRestaurant().getId().equals(restaurantId));
-    }
-
-    public List<CartItem> getItemsByRestaurant(String restaurantId) {
-        return items.stream()
-                .filter(item -> item.getRestaurant().getId().equals(restaurantId))
-                .collect(Collectors.toList());
     }
 
     // ---------- Base Price Calculation (NO DISCOUNT) ----------
