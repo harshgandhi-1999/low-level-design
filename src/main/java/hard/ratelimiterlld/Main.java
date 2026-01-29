@@ -1,10 +1,10 @@
-package ratelimiterlld;
+package hard.ratelimiterlld;
 
-import ratelimiterlld.algo.impl.FixedWindowCounterRateLimiter;
-import ratelimiterlld.algo.impl.LeakyBucketRateLimiter;
-import ratelimiterlld.algo.impl.SlidingWindowLogRateLimiter;
-import ratelimiterlld.config.RateLimiterConfig;
-import ratelimiterlld.config.RateLimiterConfigBuilder;
+import hard.ratelimiterlld.algo.impl.FixedWindowCounterRateLimiter;
+import hard.ratelimiterlld.algo.impl.LeakyBucketRateLimiter;
+import hard.ratelimiterlld.algo.impl.SlidingWindowLogRateLimiter;
+import hard.ratelimiterlld.config.RateLimiterConfig;
+import hard.ratelimiterlld.config.RateLimiterConfigBuilder;
 
 public class Main {
     public static void main(String[] args) throws InterruptedException {

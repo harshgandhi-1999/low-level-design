@@ -1,11 +1,11 @@
-package ratelimiterlld.factory;
+package hard.ratelimiterlld.factory;
 
-import ratelimiterlld.algo.impl.FixedWindowCounterRateLimiter;
-import ratelimiterlld.algo.impl.LeakyBucketRateLimiter;
-import ratelimiterlld.algo.RateLimiter;
-import ratelimiterlld.algo.impl.SlidingWindowLogRateLimiter;
-import ratelimiterlld.config.RateLimiterConfig;
-import ratelimiterlld.algo.impl.TokenBucketRateLimiter;
+import hard.ratelimiterlld.algo.impl.FixedWindowCounterRateLimiter;
+import hard.ratelimiterlld.algo.impl.LeakyBucketRateLimiter;
+import hard.ratelimiterlld.algo.RateLimiter;
+import hard.ratelimiterlld.algo.impl.SlidingWindowLogRateLimiter;
+import hard.ratelimiterlld.config.RateLimiterConfig;
+import hard.ratelimiterlld.algo.impl.TokenBucketRateLimiter;
 
 public class RateLimiterFactory {
     public static RateLimiter createRateLimiter(RateLimiterConfig config) {

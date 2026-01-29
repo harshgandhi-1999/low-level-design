@@ -1,8 +1,8 @@
-package ratelimiterlld;
+package hard.ratelimiterlld;
 
-import ratelimiterlld.algo.RateLimiter;
-import ratelimiterlld.config.RateLimiterConfig;
-import ratelimiterlld.factory.RateLimiterFactory;
+import hard.ratelimiterlld.algo.RateLimiter;
+import hard.ratelimiterlld.config.RateLimiterConfig;
+import hard.ratelimiterlld.factory.RateLimiterFactory;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

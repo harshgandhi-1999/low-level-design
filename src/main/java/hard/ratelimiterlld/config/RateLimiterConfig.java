@@ -1,6 +1,6 @@
-package ratelimiterlld.config;
+package hard.ratelimiterlld.config;
 
-import ratelimiterlld.Algorithm;
+import hard.ratelimiterlld.Algorithm;
 
 public class RateLimiterConfig {
     private Algorithm algorithm;

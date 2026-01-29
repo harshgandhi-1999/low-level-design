@@ -1,6 +1,6 @@
-package ratelimiterlld.algo.impl;
+package hard.ratelimiterlld.algo.impl;
 
-import ratelimiterlld.algo.RateLimiter;
+import hard.ratelimiterlld.algo.RateLimiter;
 
 import java.util.LinkedList;
 import java.util.Queue;

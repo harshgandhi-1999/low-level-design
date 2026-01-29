@@ -1,4 +1,4 @@
-package ratelimiterlld;
+package hard.ratelimiterlld;
 
 public enum Algorithm {
     FIXED_WINDOW,
