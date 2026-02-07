@@ -33,5 +33,8 @@ public class Main {
         // we have created pricing service which uses this decorator to get final price
 
         // 3. Now we will go to inventory check and reserve the item. For this we create InventoryService
+
+
+        // 4. After this we would move to payment flow. So we will create PaymentService
     }
 }
