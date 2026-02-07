@@ -26,7 +26,9 @@ public class Main {
 
     public static void main(String[] args) {
         // always go one by one in low level design.
-        // First define all the entities.
+        // 1. First define all the entities.
+        // 2. Now we will observe that addons are optional and both are having some price and we have to get total price at the end
+        // so this gives us the idea of decorator patterm -> every medicine can be added with addon and gives total price
 
     }
 }
