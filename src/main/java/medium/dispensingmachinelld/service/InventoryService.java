@@ -5,7 +5,7 @@ import medium.dispensingmachinelld.entities.Medicine;
 
 import java.util.List;
 
-class InventoryService {
+public class InventoryService {
 
     public boolean isAvailable(Medicine m, List<AddOn> addOns) { return true;}
 

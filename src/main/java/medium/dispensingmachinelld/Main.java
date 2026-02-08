@@ -36,5 +36,10 @@ public class Main {
 
 
         // 4. After this we would move to payment flow. So we will create PaymentService
+
+        // 5. Now we will see the dispensing flow of items. State pattern is used at the machine level to
+        // control allowed user actions and transitions like selection, payment, and dispensing
+        // based on current machine state.(In braces below are the operations on state)
+        // IDLE_STATE -> (select items) -> ITEM_SELECTED -> (make_payment) -> PAYMENT_DONE -> (dispense) -> ITEM_DISPENSED
     }
 }
