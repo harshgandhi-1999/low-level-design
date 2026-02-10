@@ -1,13 +1,12 @@
-package splitwise.split;
+package hard.splitwiselld.split;
 
-import splitwise.User;
-import splitwise.splittype.Split;
+import hard.splitwiselld.entity.User;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-public class PercentageSplitStrategy implements SplitStrategy{
+public class PercentageSplitStrategy implements SplitStrategy {
     Map<User, Double> userToPercentage;
 
     public PercentageSplitStrategy(Map<User, Double> userToPercentage) {
