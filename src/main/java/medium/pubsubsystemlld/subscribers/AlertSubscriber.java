@@ -16,6 +16,12 @@ public class AlertSubscriber implements Subscriber{
 
     @Override
     public void onMessage(Message message) {
-        System.out.println("[Alert] Message: " + message);
+        System.out.println("[Alert][ID]: " + id + " Message: Inside alert");
+        try {
+            Thread.sleep(4000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("[Alert][ID]: " + id + " Message: " + message.toString());
     }
 }
