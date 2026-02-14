@@ -1,13 +1,13 @@
 package medium.pubsubsystemlld.service;
 
-import medium.pubsubsystemlld.entities.Message;
-import medium.pubsubsystemlld.entities.Topic;
+import medium.pubsubsystemlld.entities.*;
 import medium.pubsubsystemlld.subscribers.Subscriber;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
+// Broker
 public class PubSubService {
 
     private static final PubSubService INSTANCE = new PubSubService();
@@ -21,10 +21,23 @@ public class PubSubService {
         return INSTANCE;
     }
 
-    public void createTopic(String topicName){
-        topicRegistry.putIfAbsent(topicName, new Topic(topicName));
-        System.out.println("Topic " + topicName + " created");
+
+    public void createPushTopic(String topicName) {
+        if(topicRegistry.containsKey(topicName)){
+            throw new IllegalArgumentException("Topic name already exists: " + topicName);
+        }
+        topicRegistry.putIfAbsent(topicName, new PushTopic(topicName));
+        System.out.println("PushTopic " + topicName + " created");
     }
+
+    public void createStoredTopic(String topicName) {
+        if(topicRegistry.containsKey(topicName)){
+            throw new IllegalArgumentException("Topic name already exists: " + topicName);
+        }
+        topicRegistry.put(topicName, new SpecialTopic(topicName));
+        System.out.println("SpecialTopic " + topicName + " created");
+    }
+
 
     public Set<String> listTopics() {
         return topicRegistry.keySet();
@@ -56,10 +69,19 @@ public class PubSubService {
     }
 
     public void publish(String topicName, Message message) {
-        System.out.println("Publishing message to topic: " + topicName);
         Topic topic = topicRegistry.get(topicName);
         if (topic == null) throw new IllegalArgumentException("Topic not found: " + topicName);
-        topic.broadcast(message);
+        topic.publish(message);
+    }
+
+    public Message poll(String topicName, String subscriberId) {
+        Topic topic = topicRegistry.get(topicName);
+
+        if (topic instanceof PullableTopic pullableTopic) {
+            return pullableTopic.poll(subscriberId);
+        }
+
+        throw new UnsupportedOperationException("Topic does not support polling");
     }
 
     public void shutdown() {

@@ -17,6 +17,6 @@ public class EmailSubscriber implements Subscriber{
 
     @Override
     public void onMessage(Message message) {
-        System.out.println("[Email][ID]: " + id +  "Message: " + message.toString());
+        System.out.println("[Email][ID]: " + id +  " Message: " + message.toString());
     }
 }
