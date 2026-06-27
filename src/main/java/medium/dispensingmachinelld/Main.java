@@ -41,5 +41,7 @@ public class Main {
         // control allowed user actions and transitions like selection, payment, and dispensing
         // based on current machine state.(In braces below are the operations on state)
         // IDLE_STATE -> (select items) -> ITEM_SELECTED -> (make_payment) -> PAYMENT_DONE -> (dispense) -> ITEM_DISPENSED
+
+        // TODO: Check need of implementing denomincation using chain of responsibility design pattern
     }
 }
