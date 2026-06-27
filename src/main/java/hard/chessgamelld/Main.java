@@ -12,6 +12,8 @@ public class Main {
 //        7.The game should handle player turns and allow players to make moves alternately.
 //        8.The game should provide a user interface for players to interact with the game.
 
-
+        ChessGame chessGame = new ChessGame();
+        chessGame.setPlayers("Alice", "Bob");
+        chessGame.start();
     }
 }
